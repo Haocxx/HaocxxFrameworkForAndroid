@@ -3,8 +3,6 @@ package com.haocxx.haocxxframework;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.haocxx.demo.R;
-
 /**
  * Created by Haocxx
  * on 2018/8/21
