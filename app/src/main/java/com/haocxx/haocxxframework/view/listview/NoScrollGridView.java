@@ -1,4 +1,4 @@
-package com.haocxx.haocxxframework.view;
+package com.haocxx.haocxxframework.view.listview;
 
 import android.content.Context;
 import android.util.AttributeSet;
