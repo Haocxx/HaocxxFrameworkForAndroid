@@ -97,6 +97,7 @@ public class DownloadUtil {
             HttpResponse response = HttpClient.execute(httpGet);
             if (response.getStatusLine().getStatusCode() >= 400) {
                 //fail
+		return;
             }
             BufferedInputStream in = new BufferedInputStream(response
                     .getEntity().getContent());
