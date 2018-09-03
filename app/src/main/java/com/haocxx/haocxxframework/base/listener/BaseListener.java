@@ -1,4 +1,4 @@
-package com.haocxx.haocxxframework.base.bean;
+package com.haocxx.haocxxframework.base.listener;
 
 /**
  * Created by Haocxx
