@@ -22,6 +22,12 @@ import java.nio.channels.FileChannel;
  * on 2018/9/3
  */
 public class JSONUtil {
+
+    /**
+     * Read a .json file and convert to String
+     * @param path The path of .json file
+     * @return
+     */
     public static String getJsonStrinByFileName(String path) {
         InputStream mInputStream = null;
         try {

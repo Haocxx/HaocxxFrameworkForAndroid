@@ -1,20 +1,17 @@
 package com.haocxx.haocxxframework.util.net;
 
-import com.haocxx.haocxxframework.base.bean.BaseListener;
+import com.haocxx.haocxxframework.base.listener.BaseListener;
 import com.haocxx.haocxxframework.util.file.FileUtil;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.conn.ConnectTimeoutException;
 
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.SocketTimeoutException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
