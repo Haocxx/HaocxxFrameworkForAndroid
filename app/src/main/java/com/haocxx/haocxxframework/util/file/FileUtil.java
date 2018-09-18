@@ -21,13 +21,18 @@ public class FileUtil {
         return dir.mkdirs();
     }
 
-    public static void makeDirs(File file) {
+    public static boolean makeDirs(File file) {
         if (!file.exists()) {
             if (file.isDirectory()) {
-                file.mkdirs();
+                if(!file.mkdirs()) {
+                    return false;
+                }
             } else {
-                file.getParentFile().mkdirs();
+                if(!file.getParentFile().mkdirs()) {
+                    return false;
+                }
             }
         }
+        return true;
     }
 }
