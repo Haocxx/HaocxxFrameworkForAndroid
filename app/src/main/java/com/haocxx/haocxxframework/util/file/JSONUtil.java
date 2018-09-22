@@ -27,7 +27,7 @@ public class JSONUtil {
      * Read a .json file and convert to String
      *
      * @param path The path of .json file
-     * @return
+     * @return string content of .json file
      */
     public static String getJsonStrinByFileName(String path) {
         InputStream mInputStream = null;
@@ -65,6 +65,12 @@ public class JSONUtil {
         return null;
     }
 
+    /**
+     * Read a .json file and convert to JSONObject
+     *
+     * @param path The path of .json file
+     * @return JSONObject content of .json file
+     */
     public static JSONObject getJSONByFileName(String path) {
         try {
             return new JSONObject(getJsonStrinByFileName(path));
@@ -74,6 +80,12 @@ public class JSONUtil {
         return null;
     }
 
+    /**
+     * Read a .json file and convert to JsonObject
+     *
+     * @param path The path of .json file
+     * @return JsonObject content of .json file
+     */
     public static JsonObject getJsonByFileName(String path) {
         JsonParser parser = new JsonParser();
         String jsonString = getJsonStrinByFileName(path);
@@ -83,6 +95,13 @@ public class JSONUtil {
         return null;
     }
 
+    /**
+     * Write json string to .json file
+     *
+     * @param jsonContent string content to write
+     * @param path absolute path of output file
+     * @return true if success or false if failed
+     */
     public static boolean writeJsonFile(String jsonContent, String path) {
         FileOutputStream fos = null;
         ObjectOutputStream os = null;
@@ -116,7 +135,6 @@ public class JSONUtil {
                     e.printStackTrace();
                 }
             }
-
         }
         return true;
     }
