@@ -33,7 +33,6 @@ public class BaseInstanceManager<T> {
         } else {
             return null;
         }
-
     }
 
     public T getBottomInstanceInList() {

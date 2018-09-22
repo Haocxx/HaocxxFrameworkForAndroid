@@ -25,6 +25,7 @@ public class JSONUtil {
 
     /**
      * Read a .json file and convert to String
+     *
      * @param path The path of .json file
      * @return
      */
@@ -50,19 +51,15 @@ public class JSONUtil {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            try {
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            if (mInputStream != null) {
-                try {
-                    mInputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            try {
+                mInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
         return null;
@@ -80,30 +77,30 @@ public class JSONUtil {
     public static JsonObject getJsonByFileName(String path) {
         JsonParser parser = new JsonParser();
         String jsonString = getJsonStrinByFileName(path);
-        if(jsonString != null) {
-            JsonObject json = parser.parse(jsonString).getAsJsonObject();
-            return json;
+        if (jsonString != null) {
+            return parser.parse(jsonString).getAsJsonObject();
         }
         return null;
     }
 
-    public static void writeJsonFile(String jsonContent, String path) {
+    public static boolean writeJsonFile(String jsonContent, String path) {
         FileOutputStream fos = null;
         ObjectOutputStream os = null;
         try {
             File file = new File(path);
-            if(!file.exists()) {
-                file.createNewFile();
+            if (!file.exists()) {
+                if(!file.createNewFile()) {
+                    return false;
+                }
             }
             fos = new FileOutputStream(file, false);
             os = new ObjectOutputStream(fos);
             FileChannel fc = fos.getChannel();
             fc.truncate(fc.position() - 4);
             os.writeObject(jsonContent);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+            return false;
         } finally {
             if (fos != null) {
                 try {
@@ -121,6 +118,7 @@ public class JSONUtil {
             }
 
         }
+        return true;
     }
 
 }
