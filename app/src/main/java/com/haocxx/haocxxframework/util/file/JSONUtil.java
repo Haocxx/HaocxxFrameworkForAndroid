@@ -25,8 +25,9 @@ public class JSONUtil {
 
     /**
      * Read a .json file and convert to String
+     *
      * @param path The path of .json file
-     * @return
+     * @return string content of .json file
      */
     public static String getJsonStrinByFileName(String path) {
         InputStream mInputStream = null;
@@ -50,24 +51,26 @@ public class JSONUtil {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            try {
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            if (mInputStream != null) {
-                try {
-                    mInputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            try {
+                mInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
         return null;
     }
 
+    /**
+     * Read a .json file and convert to JSONObject
+     *
+     * @param path The path of .json file
+     * @return JSONObject content of .json file
+     */
     public static JSONObject getJSONByFileName(String path) {
         try {
             return new JSONObject(getJsonStrinByFileName(path));
@@ -77,33 +80,46 @@ public class JSONUtil {
         return null;
     }
 
+    /**
+     * Read a .json file and convert to JsonObject
+     *
+     * @param path The path of .json file
+     * @return JsonObject content of .json file
+     */
     public static JsonObject getJsonByFileName(String path) {
         JsonParser parser = new JsonParser();
         String jsonString = getJsonStrinByFileName(path);
-        if(jsonString != null) {
-            JsonObject json = parser.parse(jsonString).getAsJsonObject();
-            return json;
+        if (jsonString != null) {
+            return parser.parse(jsonString).getAsJsonObject();
         }
         return null;
     }
 
-    public static void writeJsonFile(String jsonContent, String path) {
+    /**
+     * Write json string to .json file
+     *
+     * @param jsonContent string content to write
+     * @param path absolute path of output file
+     * @return true if success or false if failed
+     */
+    public static boolean writeJsonFile(String jsonContent, String path) {
         FileOutputStream fos = null;
         ObjectOutputStream os = null;
         try {
             File file = new File(path);
-            if(!file.exists()) {
-                file.createNewFile();
+            if (!file.exists()) {
+                if(!file.createNewFile()) {
+                    return false;
+                }
             }
             fos = new FileOutputStream(file, false);
             os = new ObjectOutputStream(fos);
             FileChannel fc = fos.getChannel();
             fc.truncate(fc.position() - 4);
             os.writeObject(jsonContent);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+            return false;
         } finally {
             if (fos != null) {
                 try {
@@ -119,8 +135,8 @@ public class JSONUtil {
                     e.printStackTrace();
                 }
             }
-
         }
+        return true;
     }
 
 }

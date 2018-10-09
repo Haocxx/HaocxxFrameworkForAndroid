@@ -1,7 +1,9 @@
-package com.haocxx.haocxxframework;
+package com.haocxx.test;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.haocxx.haocxxframework.R;
 
 /**
  * Created by Haocxx
