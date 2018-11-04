@@ -10,6 +10,12 @@ import java.io.File;
  */
 public class FileUtil {
 
+    /**
+     * Create directories to the given path string.
+     *
+     * @param path The path string of the directory.
+     * @return True if success and false if failed.
+     */
     public static boolean makeDirs(String path) {
         if (TextUtils.isEmpty(path)) {
             return false;
@@ -21,16 +27,18 @@ public class FileUtil {
         return dir.mkdirs();
     }
 
+    /**
+     * Create directories to the given file.
+     *
+     * @param file The file of the directory.
+     * @return True if success and false if failed.
+     */
     public static boolean makeDirs(File file) {
         if (!file.exists()) {
             if (file.isDirectory()) {
-                if(!file.mkdirs()) {
-                    return false;
-                }
+                return file.mkdirs();
             } else {
-                if(!file.getParentFile().mkdirs()) {
-                    return false;
-                }
+                return file.getParentFile().mkdirs();
             }
         }
         return true;

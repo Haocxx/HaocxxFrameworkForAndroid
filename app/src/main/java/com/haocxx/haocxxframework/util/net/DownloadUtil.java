@@ -1,6 +1,5 @@
 package com.haocxx.haocxxframework.util.net;
 
-import com.haocxx.haocxxframework.base.listener.BaseListener;
 import com.haocxx.haocxxframework.util.file.FileUtil;
 
 import org.apache.http.HttpResponse;
@@ -25,7 +24,7 @@ import okhttp3.Response;
  */
 public class DownloadUtil {
 
-    public static void downloadByOkHttp(OkHttpClient okHttpClient, String url, final File localFile, final BaseListener listener) {
+    public static void downloadByOkHttp(OkHttpClient okHttpClient, String url, final File localFile) {
         if (localFile.exists()) {
             localFile.delete();
         } else {
@@ -58,24 +57,24 @@ public class DownloadUtil {
                         fos.write(buf, 0, len);
                         sum += len;
                         int progress = (int) (sum * 1.0f / total * 100);
-                        // 下载中更新进度条
-                        //listener.onDownloading(progress);
+                        // get progress
                     }
                     fos.flush();
-                    // 下载完成
-                    //listener.onDownloadSuccess(file);
+                    // download done.
                 } catch (Exception e) {
-                    //listener.onDownloadFailed(e);
+                    // download failed.
                 } finally {
                     try {
                         if (is != null)
                             is.close();
                     } catch (IOException e) {
+                        e.printStackTrace();
                     }
                     try {
                         if (fos != null)
                             fos.close();
                     } catch (IOException e) {
+                        e.printStackTrace();
                     }
                 }
             }

@@ -9,6 +9,12 @@ import java.security.MessageDigest;
  * on 18-8-29
  */
 public class MD5Util {
+
+    /**
+     * Get MD5 string by a file path string. If any exception, "" will be return.
+     * @param filePath The path of file to be calculate.
+     * @return The MD5 string of target file.
+     */
     public static String fileToMD5(String filePath) {
         InputStream inputStream = null;
         try {

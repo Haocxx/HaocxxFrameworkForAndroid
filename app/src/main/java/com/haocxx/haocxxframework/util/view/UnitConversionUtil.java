@@ -8,10 +8,11 @@ import android.content.Context;
  */
 public class UnitConversionUtil {
     /**
-     * 将px值转换为dp值，保证尺寸不便。
-     * @param context
-     * @param pxValue
-     * @return
+     * Convert PX to DP.
+     *
+     * @param context Android context like Application or Activity.
+     * @param pxValue PX value to be converted.
+     * @return The DP value result of PX value.
      */
     public static int convertPxToDip(Context context, float pxValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
@@ -19,10 +20,10 @@ public class UnitConversionUtil {
     }
 
     /**
-     * 将dp值转换为px值，保持尺寸大小不变
-     * @param context
-     * @param dipValue
-     * @return
+     * Convert DP to PX.
+     * @param context Android context like Application or Activity.
+     * @param dipValue DP value to be converted.
+     * @return The PX value result of DP value.
      */
     public static int convertDipToPx(Context context,float dipValue) {
         final float scale = context.getResources().getDisplayMetrics().density;
@@ -30,10 +31,10 @@ public class UnitConversionUtil {
     }
 
     /**
-     * 将px值转换为dp值，保证尺寸不便。
-     * @param context
-     * @param pxValue
-     * @return
+     * Convert PX to SP.
+     * @param context Android context like Application or Activity.
+     * @param pxValue DX value to be converted.
+     * @return The SP value result of PX value.
      */
     public static int convertPxToSp(Context context, float pxValue) {
         final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
@@ -41,10 +42,10 @@ public class UnitConversionUtil {
     }
 
     /**
-     * 将dp值转换为px值，保持尺寸大小不变
-     * @param context
-     * @param spValue
-     * @return
+     * Convert SP to PX.
+     * @param context Android context like Application or Activity.
+     * @param spValue SP value to be converted.
+     * @return The PX value result of SP value.
      */
     public static int convertSpToPx(Context context,float spValue) {
         final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
