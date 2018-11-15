@@ -29,7 +29,7 @@ public class JSONUtil {
      * @param path The path of .json file
      * @return string content of .json file
      */
-    public static String getJsonStrinByFileName(String path) {
+    public static String getJsonStringByFileName(String path) {
         InputStream mInputStream = null;
         try {
             mInputStream = new FileInputStream(new File(path));
@@ -73,7 +73,7 @@ public class JSONUtil {
      */
     public static JSONObject getJSONByFileName(String path) {
         try {
-            return new JSONObject(getJsonStrinByFileName(path));
+            return new JSONObject(getJsonStringByFileName(path));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -88,7 +88,7 @@ public class JSONUtil {
      */
     public static JsonObject getJsonByFileName(String path) {
         JsonParser parser = new JsonParser();
-        String jsonString = getJsonStrinByFileName(path);
+        String jsonString = getJsonStringByFileName(path);
         if (jsonString != null) {
             return parser.parse(jsonString).getAsJsonObject();
         }

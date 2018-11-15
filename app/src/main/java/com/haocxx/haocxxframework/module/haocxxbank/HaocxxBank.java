@@ -1,13 +1,14 @@
 package com.haocxx.haocxxframework.module.haocxxbank;
 
 import android.support.annotation.Nullable;
-import android.util.SparseArray;
 
 import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.UUID;
 
 /**
  * Object storage function like a bank. You can save an object to a bank by method
- * {@link #put(Object)} and get a key, then get it by method {@link #get(int)}
+ * {@link #put(Object)} and get a key, then get it by method {@link #get(String)}
  * using the key.
  *
  * Created by Haocxx 
@@ -15,7 +16,7 @@ import java.lang.ref.WeakReference;
  */
 public class HaocxxBank {
     private static HaocxxBank sHaocxxBank;
-    private SparseArray<WeakReference<Object>> mBankMap;
+    private HashMap<String, WeakReference<Object>> mBankMap;
 
     /**
      * Get a default HaocxxBank object. It`s thread-safe.
@@ -34,7 +35,7 @@ public class HaocxxBank {
     }
 
     public HaocxxBank() {
-        mBankMap = new SparseArray<>();
+        mBankMap = new HashMap<>();
     }
 
     /**
@@ -45,8 +46,8 @@ public class HaocxxBank {
      * @param goods The object to be saved.
      * @return The key for the goods has been saved.
      */
-    public synchronized int put(Object goods) {
-        int key = getKey();
+    public synchronized String put(Object goods) {
+        String key = getKey();
         while (mBankMap.get(key) != null) {
             key = getKey();
         }
@@ -62,7 +63,7 @@ public class HaocxxBank {
      * @return The object in the pool witch match the key.
      */
     @Nullable
-    public synchronized Object get(int key) {
+    public synchronized Object get(String key) {
         WeakReference weakReference = mBankMap.get(key);
         if (weakReference == null) {
             return null;
@@ -77,7 +78,7 @@ public class HaocxxBank {
         }
     }
 
-    private int getKey() {
-        return (int) (Math.random() * 10000000);
+    private String getKey() {
+        return UUID.randomUUID().toString().replace("-", "");
     }
 }
