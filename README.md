@@ -12,3 +12,5 @@ A private android framework library for development.
 	dependencies {
 	        implementation 'com.github.Haocxx:HaocxxFrameworkForAndroid:Tag'
 	}
+
+[![](https://jitpack.io/v/Haocxx/HaocxxFrameworkForAndroid.svg)](https://jitpack.io/#Haocxx/HaocxxFrameworkForAndroid)
