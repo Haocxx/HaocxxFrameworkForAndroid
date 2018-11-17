@@ -2,11 +2,6 @@ package com.haocxx.framework.util.net;
 
 import com.haocxx.framework.util.file.FileUtil;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -79,40 +74,5 @@ public class DownloadUtil {
                 }
             }
         });
-    }
-
-    public static void downloadByHttp(HttpClient HttpClient, String url, File localFile) {
-        if (localFile.exists()) {
-            localFile.delete();
-        } else {
-            FileUtil.makeDirs(localFile);
-        }
-        FileOutputStream out = null;
-        try {
-            HttpGet httpGet = new HttpGet(url);
-            HttpResponse response = HttpClient.execute(httpGet);
-            if (response.getStatusLine().getStatusCode() >= 400) {
-                //fail
-		return;
-            }
-            BufferedInputStream in = new BufferedInputStream(response
-                    .getEntity().getContent());
-            int len = 1024;
-            byte[] bytes = new byte[len];
-            out = new FileOutputStream(localFile);
-            while ((len = in.read(bytes)) != -1) {
-                out.write(bytes, 0, len);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if(out != null) {
-                    out.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
     }
 }
