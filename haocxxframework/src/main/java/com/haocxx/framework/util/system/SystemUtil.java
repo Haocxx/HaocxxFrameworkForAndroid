@@ -1,6 +1,7 @@
 package com.haocxx.framework.util.system;
 
 import android.content.Context;
+import android.provider.Settings;
 
 /**
  * Created by Haocxx 
@@ -8,6 +9,6 @@ import android.content.Context;
  */
 public class SystemUtil {
     public static String getAndroidId (Context context) {
-        return android.provider.Settings.Secure.getString(context.getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
+        return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
     }
 }
