@@ -2,9 +2,10 @@ package com.haocxx.framework.haocxxbank;
 
 import android.support.annotation.Nullable;
 
+import com.haocxx.framework.util.system.SecureUtil;
+
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-import java.util.UUID;
 
 /**
  * Object storage function like a bank. You can save an object to a bank by method
@@ -79,6 +80,6 @@ public class HaocxxBank {
     }
 
     private String getKey() {
-        return UUID.randomUUID().toString().replace("-", "");
+        return SecureUtil.getRandomUUID();
     }
 }
