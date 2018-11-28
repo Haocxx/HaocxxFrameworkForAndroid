@@ -8,6 +8,8 @@ import java.lang.annotation.Target;
 /**
  * Created by Haocxx
  * on 2018/11/28
+ *
+ * https://blog.csdn.net/xwh_1230/article/details/78213160
  */
 
 @Retention(RetentionPolicy.CLASS)

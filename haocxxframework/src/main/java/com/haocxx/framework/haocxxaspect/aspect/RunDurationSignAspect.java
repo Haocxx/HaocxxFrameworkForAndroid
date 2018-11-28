@@ -15,6 +15,8 @@ import org.aspectj.lang.reflect.MethodSignature;
  */
 @Aspect
 public class RunDurationSignAspect {
+    private static final String TAG = "RunDurationSignAspect";
+
     private static final String POINTCUT_METHOD =
             "execution(@com.haocxx.framework.haocxxaspect.annotation.RunDurationSign * *(..))";
 
@@ -51,7 +53,7 @@ public class RunDurationSignAspect {
      * @return A string representing message.
      */
     private static String buildLogMessage(String methodName, long methodDuration) {
-        return "RunDurationSignAspect --> " + methodName
+        return TAG + " --> " + methodName
                 + " --> " + "[" + methodDuration + "ms" + "]";
     }
 }
