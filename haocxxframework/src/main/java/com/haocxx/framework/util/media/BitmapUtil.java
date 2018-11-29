@@ -1,6 +1,9 @@
 package com.haocxx.framework.util.media;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.support.annotation.DrawableRes;
 
 import com.haocxx.framework.util.file.FileUtil;
 
@@ -39,5 +42,16 @@ public class BitmapUtil {
             return false;
         }
         return bitmap.compress(format, quality, outputStream);
+    }
+
+    /**
+     * Make a bitmap by a drawable resource id.
+     *
+     * @param context The context to ge resource.
+     * @param res The drawable resource id to make a bitmap.
+     * @return The created bitmap object.
+     */
+    public static Bitmap getBitmapFromResource(Context context, @DrawableRes int res) {
+        return BitmapFactory.decodeResource(context.getResources(), res);
     }
 }
