@@ -30,7 +30,7 @@ public class RunDurationSignAspect {
     public void constructorAnnotatedRunDurationSign() {}
 
     @Around("methodAnnotatedWithRunDurationSign() || constructorAnnotatedRunDurationSign()")
-    public Object waveJoinPoint(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object weaveJoinPoint(ProceedingJoinPoint joinPoint) throws Throwable {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         String className = methodSignature.getDeclaringType().getSimpleName();
         String methodName = methodSignature.getName();
