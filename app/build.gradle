@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.Haocxx'
+group = 'com.github.Haocxx'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 

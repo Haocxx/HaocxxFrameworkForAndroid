@@ -1,7 +1,9 @@
 package com.haocxx.test;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.haocxx.framework.haocxxaspect.annotation.RunDurationSign;
 import com.haocxx.haocxxframework.R;
@@ -17,6 +19,13 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         doIt();
+        findViewById(R.id.filter_text_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(TestActivity.this, FilterTestActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     @RunDurationSign
