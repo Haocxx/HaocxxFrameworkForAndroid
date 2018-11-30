@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.haocxx.test.FilterTestActivity"></activity>
+        <activity android:name="com.haocxx.test.filter.FilterTestActivity"></activity>
     </application>
 
 </manifest>
