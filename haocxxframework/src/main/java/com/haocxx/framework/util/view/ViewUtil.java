@@ -27,4 +27,20 @@ public class ViewUtil {
             view.setClipToOutline(true);
         }
     }
+
+    public static void setRoundCorner(View view, final int radiusInPx, final boolean onlyTop) {
+        if (view != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            view.setOutlineProvider(new ViewOutlineProvider() {
+                Rect selfRect = new Rect();
+                int radius = radiusInPx;
+                @Override
+                public void getOutline(View view, Outline outline) {
+                    selfRect.set(0, 0,
+                            view.getMeasuredWidth(), onlyTop ? view.getMeasuredHeight()  + radius : view.getMeasuredHeight());
+                    outline.setRoundRect(selfRect, radius);
+                }
+            });
+            view.setClipToOutline(true);
+        }
+    }
 }
