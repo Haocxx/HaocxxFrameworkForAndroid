@@ -10,7 +10,7 @@ import java.io.IOException;
  *
  * Refer to https://blog.csdn.net/slaron/article/details/78294833
  */
-public class AutoScriptUtil {
+public class ShellScriptUtil {
 
     /**
      * Do a click on the screen by a specific position.
