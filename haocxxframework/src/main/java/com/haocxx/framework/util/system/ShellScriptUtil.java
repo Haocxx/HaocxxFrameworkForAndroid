@@ -1,5 +1,7 @@
 package com.haocxx.framework.util.system;
 
+import com.haocxx.framework.annotation.NotWork;
+
 import java.io.IOException;
 
 /**
@@ -10,6 +12,7 @@ import java.io.IOException;
  *
  * Refer to https://blog.csdn.net/slaron/article/details/78294833
  */
+@NotWork
 public class ShellScriptUtil {
 
     /**

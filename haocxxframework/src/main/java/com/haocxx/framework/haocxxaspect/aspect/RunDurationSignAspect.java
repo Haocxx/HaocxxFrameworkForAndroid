@@ -1,5 +1,6 @@
 package com.haocxx.framework.haocxxaspect.aspect;
 
+import com.haocxx.framework.annotation.NotWork;
 import com.haocxx.framework.system.StopWatch;
 import com.haocxx.framework.util.system.LogUtil;
 
@@ -13,6 +14,7 @@ import org.aspectj.lang.reflect.MethodSignature;
  * Created by Haocxx
  * on 2018/11/28
  */
+@NotWork
 @Aspect
 public class RunDurationSignAspect {
     private static final String TAG = "RunDurationSignAspect";
