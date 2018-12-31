@@ -5,6 +5,8 @@ import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
+import com.haocxx.framework.annotation.BugInside;
+
 /**
  *  A listener to the soft keyboard showing/hidden state. It works by listen to
  *  the height change of the view. Actually it`s not reliable, cause some other
@@ -15,6 +17,7 @@ import android.view.ViewTreeObserver;
  *  
  *  https://blog.csdn.net/u011181222/article/details/52043001
  */
+@BugInside
 public class SoftKeyBoardListener {
     private View mRootView;
     private int rootViewVisibleHeight;
