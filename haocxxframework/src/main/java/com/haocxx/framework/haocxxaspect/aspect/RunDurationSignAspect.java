@@ -14,7 +14,6 @@ import org.aspectj.lang.reflect.MethodSignature;
  * Created by Haocxx
  * on 2018/11/28
  */
-@NotWork
 @Aspect
 public class RunDurationSignAspect {
     private static final String TAG = "RunDurationSignAspect";
