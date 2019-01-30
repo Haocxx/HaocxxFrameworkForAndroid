@@ -52,14 +52,13 @@ public class NotificationBadgeUtil {
     private static String OSName = null;
 
     /**
-     * SHOULD NOT USE THIS METHOD SINCE ANDROID O!!!
-     *
-     * The static method to show a badge while using notification. It must using under
-     * version adjudging.
+     * The static method to show a badge while using notification.
      *
      * Google provide system API for badges works in launcher since Android O,
-     * if SDK version is older than Android O, should using variant phone custom
-     * launcher badge ways like dealing in this method.
+     * if SDK version is older than Android O, you can using variant phone custom
+     * launcher badge ways like dealing in this method. But some specific phone
+     * models seems don`t support system API even though API over Android O, like
+     * my HUAWEI P9 Android O.
      *
      * @param context Context for notification dependence.
      * @param notification Notification object correspond to badge.
@@ -71,10 +70,6 @@ public class NotificationBadgeUtil {
             init();
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            new Exception(TAG + " SHOULD NOT USE &showBadge()& SINCE ANDROID O!!!").printStackTrace();
-            return;
-        }
         OSName = Build.BRAND.trim().toUpperCase();
         if (notification != null) {
             if (num < 0) num = 0;
@@ -153,6 +148,11 @@ public class NotificationBadgeUtil {
         }
     }
 
+    /*
+        Need permission for HUAWEI models:
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+     */
     private static void setBadgeOfHuaWei(Context context, Notification notification, int NOTIFICATION_ID, int num) {
         try {
             Bundle localBundle = new Bundle();

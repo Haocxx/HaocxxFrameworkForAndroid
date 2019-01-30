@@ -44,21 +44,17 @@ class BadgeTestActivity : AppCompatActivity() {
     }
 
     private fun clickShowBadge(count : Int) {
+        val notification = NotificationCompat.Builder(this@BadgeTestActivity, _channelId)
+                .setContentTitle("New Messages")
+                .setContentText("You've received 3 new messages.")
+                .setSmallIcon(R.drawable.notification_icon_background)
+                .setNumber(count)
+                .build()
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val notification = NotificationCompat.Builder(this@BadgeTestActivity, _channelId)
-                    .setContentTitle("New Messages")
-                    .setContentText("You've received 3 new messages.")
-                    .setSmallIcon(R.drawable.notification_icon_background)
-                    .setNumber(count)
-                    .build()
             val notifyMgr = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
             notifyMgr.notify(0, notification)
         } else {
-            val notification = NotificationCompat.Builder(this@BadgeTestActivity, _channelId)
-                    .setContentTitle("New Messages")
-                    .setContentText("You've received 3 new messages.")
-                    .setSmallIcon(R.drawable.notification_icon_background)
-                    .build()
             NotificationBadgeUtil.showBadge(this, notification, 0, count)
         }
     }
