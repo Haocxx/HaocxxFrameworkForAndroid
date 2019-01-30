@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.haocxx.test.filter.FilterTestActivity"></activity>
+        <activity android:name="com.haocxx.test.badge.BadgeTestActivity"></activity>
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.haocxx.framework.haocxxaspect.annotation.RunDurationSign;
 import com.haocxx.haocxxframework.R;
+import com.haocxx.test.badge.BadgeTestActivity;
 import com.haocxx.test.filter.FilterTestActivity;
 
 /**
@@ -24,6 +25,13 @@ public class TestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(TestActivity.this, FilterTestActivity.class);
+                startActivity(i);
+            }
+        });
+        findViewById(R.id.badge_text_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(TestActivity.this, BadgeTestActivity.class);
                 startActivity(i);
             }
         });
