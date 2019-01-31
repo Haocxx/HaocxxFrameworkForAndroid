@@ -63,7 +63,7 @@ public class NotificationBadgeUtil {
      * @param context Context for notification dependence.
      * @param notification Notification object correspond to badge.
      * @param NOTIFICATION_ID The notification channel id.
-     * @param num The count of badges.
+     * @param num The count of badges. Cancel notification if count is 0.
      */
     public static void showBadge(Context context, Notification notification, int NOTIFICATION_ID, int num) {
         if (!hasInit) {

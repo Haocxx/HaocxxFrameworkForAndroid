@@ -10,14 +10,14 @@
         android:id="@+id/filter_text_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="FilterText"
+        android:text="FilterTest"
         android:textSize="20dp" />
 
     <TextView
         android:id="@+id/badge_text_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BadgeText"
+        android:text="BadgeTest"
         android:textSize="20dp" />
 
 </LinearLayout>
