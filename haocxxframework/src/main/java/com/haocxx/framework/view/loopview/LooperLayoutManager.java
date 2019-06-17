@@ -53,6 +53,7 @@ public class LooperLayoutManager extends RecyclerView.LayoutManager {
             }
         }
     }
+
     @Override
     public int scrollHorizontallyBy(int dx, RecyclerView.Recycler recycler, RecyclerView.State state) {
         //标注1.横向滑动的时候，对左右两边按顺序填充itemView
