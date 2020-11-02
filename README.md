@@ -1,6 +1,7 @@
-//deprecated 
-好吧好吧，这玩意好久也不更新了，说实话也确实啥有营养的内容，就当练习咋上传jitpack了吧。
-
+//deprecated  
+# 好吧好吧，刚学习Android的时候建立的仓库这玩意好久也不更新了，说实话也确实没有啥有营养的内容，就当练习咋上传jitpack了吧。
+  
+   
 # HaocxxFrameworkForAndroid
 A private android framework library for development.
 ## How to get it in your project
